@@ -176,21 +176,27 @@ public class Main {
                 list.printPlayerList();
                         
 		System.out.println();
-		System.out.println("Goodbye!");
 
-
-		
-		
-		int[] arr = new int[2];
-		arr[0] = p1wincount;
-		arr[1] = p2wincount;
-
-		int[] sortarr = new int[10];
-		System.out.print("Player 1 Wins: " + arr[0]);
-		System.out.print("Player 2 Wins: " + arr[1]);
+		int[] sortarr = new int[2];
+		sortarr[0] = p1wincountsort;
+		sortarr[1] = p2wincountsort;
 
 		GenericSort ob = new GenericSort();
-		ob.mergeSort(sortarr, 0, arr.length - 1);
+		ob.mergeSort(sortarr, 0, sortarr.length - 1);
+		ob.reverse(sortarr);
+
+		if(p2wincountsort > p1wincountsort)
+		{
+			System.out.println("Player 2 Wins With A Score Of: " + sortarr[0]);
+			System.out.println("Player 1 Score:  " + sortarr[1]);
+		}
+		else
+		{
+			System.out.println("Player 1 Wins With A Score Of: " + sortarr[0]);
+			System.out.println("Player 2 Score:  " + sortarr[1] + "\n");
+		}
+
+		System.out.println("Goodbye!");
 
 		
 		
