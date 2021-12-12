@@ -135,9 +135,24 @@ public class Main {
 				//checks if the spot is taken
 				boolean choice = game.player1Turn(spot);
 				while(choice == false) {
-					
 					System.out.print("Choose a different spot: ");
-					spot = input.nextInt();
+					try{
+						spot = input.nextInt();
+					} catch(InputMismatchException e) {
+						System.out.print("Please select a spot (1-9)");
+						boolean retry = true;
+						while (retry) {
+							try {
+								input.nextLine();            //Refreshes input
+								System.out.println();
+								System.out.print(name1 + "'s Turn \nChoose a spot: ");
+								spot = input.nextInt();
+								retry = false;
+							} catch (InputMismatchException k) {
+								System.out.print("Wrong again! Please select a spot (1-9)");
+							}
+						}
+					}
 					System.out.println();
 					choice = game.player1Turn(spot);
 					
@@ -182,7 +197,23 @@ public class Main {
 				while(choice == false) {
 					
 					System.out.print("Choose a different spot: ");
-					spot = input.nextInt();
+					try {
+						spot = input.nextInt();
+					} catch(InputMismatchException e) {
+						System.out.print("Please select a spot (1-9)");
+						boolean retry = true;
+						while (retry) {
+							try {
+								input.nextLine();            //Refreshes input
+								System.out.println();
+								System.out.print(name2 + "'s Turn \nChoose a spot: ");
+								spot = input.nextInt();
+								retry = false;
+							} catch (InputMismatchException k) {
+								System.out.print("Wrong again! Please select a spot (1-9)");
+							}
+						}
+					}
 					System.out.println();
 					choice = game.player2Turn(spot);
 					
@@ -203,7 +234,23 @@ public class Main {
 				game.printBoard();
 				System.out.println();
 				System.out.print(name1 + "'s Turn \nChoose a spot: ");
-				spot = input.nextInt();
+				try {
+					spot = input.nextInt();
+				} catch(InputMismatchException e) {
+					System.out.print("Please select a spot (1-9)");
+					boolean retry = true;
+					while (retry) {
+						try {
+							input.nextLine();            //Refreshes input
+							System.out.println();
+							System.out.print(name2 + "'s Turn \nChoose a spot: ");
+							spot = input.nextInt();
+							retry = false;
+						} catch (InputMismatchException k) {
+							System.out.print("Wrong again! Please select a spot (1-9)");
+						}
+					}
+				}
 				System.out.println();
 				
 			}
