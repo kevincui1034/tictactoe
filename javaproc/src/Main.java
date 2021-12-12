@@ -13,6 +13,8 @@ public class Main {
 		Scanner input = new Scanner(System.in);
 		int p1wincount = 0;
 		int p2wincount = 0;
+		String name1 = null;
+		String name2 = null;
                 
                 PlayerList list = new PlayerList();
 
@@ -38,7 +40,7 @@ public class Main {
 		while(answer.equals("yes")) {
 			System.out.println();
 			System.out.print("Enter Name of First Player(X): ");
-			String name1 = input.next();
+			name1 = input.next();
                         System.out.print("Enter Age of First Player(X): ");
 			int age1 = input.nextInt();
                         
@@ -48,7 +50,7 @@ public class Main {
                         
 			System.out.println();
 			System.out.print("Enter Name of Second Player(O): ");
-			String name2 = input.next();
+			name2 = input.next();
                         System.out.print("Enter Age of Second Player(O): ");
 			int age2 = input.nextInt();
                         
@@ -173,8 +175,8 @@ public class Main {
                 
                 // print the players and their ages
                 System.out.println();
-                list.printPlayerList();
-                        
+		list.printPlayerList();
+
 		System.out.println();
 
 		int[] sortarr = new int[2];
@@ -187,13 +189,15 @@ public class Main {
 
 		if(p2wincountsort > p1wincountsort)
 		{
-			System.out.println("Player 2 Wins With A Score Of: " + sortarr[0]);
-			System.out.println("Player 1 Score:  " + sortarr[1]);
+			System.out.println(name2 + " Wins With A Score Of: " + sortarr[0]);
+			System.out.println();
+			System.out.printf(name1 + " Score: " + sortarr[1] + "\n");
 		}
 		else
 		{
-			System.out.println("Player 1 Wins With A Score Of: " + sortarr[0]);
-			System.out.println("Player 2 Score:  " + sortarr[1] + "\n");
+			System.out.println(name1 + " Wins With A Score Of: " + sortarr[0]);
+			System.out.println();
+			System.out.printf(name2 + " Score: " + sortarr[1] + "\n\n");
 		}
 
 		System.out.println("Goodbye!");
